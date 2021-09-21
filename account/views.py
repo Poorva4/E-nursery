@@ -1,5 +1,4 @@
-from django.contrib import auth
-from django.shortcuts import render
+from .models import Account
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import( 
@@ -30,6 +29,7 @@ def registration_view(request):
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
+            form.save()
             email = form.cleaned_data.get('email')
             raw_pass = form.cleaned_data.get('password1')
             account = authenticate(email=email, password = raw_pass)
@@ -42,7 +42,7 @@ def registration_view(request):
     else:
         form = RegistrationForm()
         context['registration_form'] = form
-    return render(request, "accounts/register.html", context)
+    return render(request, "register.html", context)
 
 def logout_view(request):
     logout(request)
@@ -65,12 +65,12 @@ def login_view(request):
             messages.success(request, "Logged In")
             return redirect("home")
         else:
-            messages.error("please Correct Below Errors")
+            messages.error(request, 'please Correct Below Errors')
 
     else:
         form = AccountAuthenticationForm()
-    context['login1-form'] = form
-    return render(request, "account/login.html", context)
+    context['login_form'] = form
+    return render(request, "login.html", context)
 
 
 def account_view(request):
@@ -87,15 +87,15 @@ def account_view(request):
     else:
         form = AccountUpdateform(
             initial={
-                'email':request.user.email,
-                'username': request.user.username,
+            'email':request.user.email,
+            'username': request.user.username,
 
             }
         )
 
     context['account_form']=form
 
-    return render(request, "account/userprofile.html", context)
+    return render(request, "userprofile.html", context)
 
 
 
