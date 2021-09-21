@@ -56,7 +56,4 @@ class Account(AbstractUser):
 
 
 
-
-
-
 # Create your models here.
