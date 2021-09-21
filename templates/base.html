@@ -19,7 +19,38 @@
         </style>
         </head>
         <body>
-            <div class="bg-dark jumbotron" style="min-height: 840px">
+
+        <div id="header " class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+                <div class="container-fluid">
+                    <a href="/" class="navbar-brand text-white"> My Nursery</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-link active text-white" aria-current="page" href="{% url 'products:product_list' %}">Home</a>
+                      <a class="nav-link text-white" href="{% url 'login'%}" >Login</a>
+                      <a class="nav-link text-white" href="{% url 'register'%}">Sign up</a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </nav>
+           
+        </div>
+        <div id="subheader" class="container">
+            <div class="cart">
+                Your cart is empty
+            </div>
+        </div>
+        
+
+
+
+
+
+            
             <div class="messages pt-2 mt-2 mb-2">
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible" role="alert">
@@ -33,7 +64,7 @@
 
             {% block content %}
              
-                <div class=" text-center text-light container-fluid">
+                <div class=" text-center text-light container">
                 <h1 class="text-light p-4 "> Hello, world </h1>
 
                 {% if request.user.is_authenticated %}
@@ -50,7 +81,7 @@
                 {% endif %}
             {% endblock %}
 
-                </div>
+            
       
       
     <!-- Optional JavaScript -->
