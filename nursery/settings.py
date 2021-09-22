@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'account.Account'
 
 
-
+CART_SESSION_ID = 'cart'
 
 
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'products',
+    'cart',
     
     
 ]
