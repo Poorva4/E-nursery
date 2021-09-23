@@ -28,6 +28,7 @@ class Cart(object):
 
     def save(self):
         self.session.modified = True
+
     
     
     #count the number of items in the cart
