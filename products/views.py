@@ -25,4 +25,5 @@ def product_detail(request, id, slug):
 
 
 
+
 # Create your views here.

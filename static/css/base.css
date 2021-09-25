@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+form p label, form p input {
+    float:left;
+    clear:both;
+}
+
+
+form p label{
+    font-size: 15px;
+    padding:10px 12px;
+    color:rgb(18, 20, 17);
+    border-radius:4px;
+}
+
+form p input{
+    width: 300px;
+    
+}
+
+.order-form{
+
+    float: left;
+}
+
+
+
